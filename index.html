@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引き落とし管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+
+    <header>
+        <h1>引き落とし管理</h1>
+        <button id="show-register-modal-btn">支払項目を管理</button>
+    </header>
+
+    <main>
+        <section id="month-selector">
+            <button id="prev-month-btn">&lt; 前月</button>
+            <h2 id="viewing-month-display"></h2>
+            <button id="next-month-btn">次月 &gt;</button>
+        </section>
+
+        <section id="summary-section">
+            <h2>口座別サマリー</h2>
+            <div id="summary-container">
+                <!-- 口座別サマリーがここに表示されます -->
+            </div>
+        </section>
+
+        <section id="schedule-section">
+            <h2>今月の引き落とし予定</h2>
+            <ul id="schedule-list">
+                <!-- 引き落とし予定がここに表示されます -->
+            </ul>
+        </section>
+
+        <section id="amount-input-section">
+            <h2>月次金額の入力</h2>
+            <form id="amount-form">
+                <div class="form-group">
+                    <label for="amount-item">項目</label>
+                    <select id="amount-item" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="amount-value">金額</label>
+                    <input type="number" id="amount-value" placeholder="例: 80000" required>
+                </div>
+                <button type="submit">金額を確定</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 支払項目登録モーダル -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <section id="register-section">
+                <h2>支払項目を登録・編集</h2>
+                <form id="item-form">
+                    <input type="hidden" id="item-id">
+                    <div class="form-group">
+                        <label for="item-name">項目名</label>
+                        <input type="text" id="item-name" placeholder="例: クレジットカードA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-day">引き落とし日 (毎月)</label>
+                        <input type="number" id="item-day" min="1" max="31" placeholder="例: 27" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-account">引き落とし口座</label>
+                        <input type="text" id="item-account" placeholder="例: A銀行" required>
+                    </div>
+                    <button type="submit">登録・更新</button>
+                </form>
+                <h3>登録済み項目</h3>
+                <ul id="registered-items-list">
+                    <!-- 登録済み項目がここに表示されます -->
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
