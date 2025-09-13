@@ -96,6 +96,7 @@ label {
 
 input[type="text"],
 input[type="number"],
+input[type="date"], /* 追加 */
 select {
     padding: 10px;
     border: 1px solid #ccc;
@@ -124,15 +125,14 @@ ul {
     padding: 0;
 }
 
-#schedule-list li,
-#registered-items-list li {
+#schedule-list li {
     background-color: #f9f9f9;
     padding: 15px;
     border: 1px solid #eee;
     border-radius: 4px;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* flexに変更 */
+    justify-content: space-between; /* 両端揃え */
     align-items: center;
     transition: all 0.3s ease;
 }
@@ -147,6 +147,13 @@ ul {
     color: #6c757d;
 }
 
+.schedule-details { /* 追加 */
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .schedule-item {
     display: flex;
     align-items: center;
@@ -155,6 +162,25 @@ ul {
 
 .schedule-amount {
     font-weight: bold;
+    margin-right: 20px; /* 右側に余白を追加 */
+}
+
+.schedule-actions button { /* 追加 */
+    margin-left: 5px;
+    padding: 5px 8px;
+    font-size: 0.9em;
+}
+
+#registered-items-list li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 #registered-items-list li .actions button {
